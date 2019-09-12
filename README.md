@@ -23,3 +23,17 @@ How to stop containers?
 
 # PS
 Index is: logstash-*
+
+调试
+
+/usr/share/logstash/bin/logstash -f conf.d/postgresql.conf  --verbose --debug
+
+遇到的问题
+
+multiline.pattern 配置 。
+默认的module 模版在测试的时候发现有些case不支持
+
+logstash 的filter
+add_field => {"duration" => "%{[message][0]}"}
+
+需要中括号把 message 也阔起来 新版本新语法
